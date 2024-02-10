@@ -26,7 +26,6 @@ export const productController = {
     },
     newProduct: async (req: Request, res: Response) => {
         try {
-            
             const {
                 product_title,
                 product_price,
@@ -82,20 +81,20 @@ export const productController = {
         }
     },
     deleteProduct: async (req: Request, res: Response) => {
-        const { productID } = req.params;
-        const product = await Product.findOneAndDelete({
-            productID: productID,
-        });
-        if (!product) {
-            return res
-                .status(404)
-                .json({ message: `${productID} not found`, code: 404 });
-        }
-        res.status(200).json({
-            message: `${product.product_title} deleted`,
-            code: 200,
-        });
         try {
+            const { productID } = req.params;
+            const product = await Product.findOneAndDelete({
+                productID: productID,
+            });
+            if (!product) {
+                return res
+                    .status(404)
+                    .json({ message: `${productID} not found`, code: 404 });
+            }
+            res.status(200).json({
+                message: `${product.product_title} deleted`,
+                code: 200,
+            });
         } catch (error: any) {
             console.log(error);
             res.status(500).json({ message: error.message, code: 500 });

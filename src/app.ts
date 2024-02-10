@@ -9,6 +9,7 @@ import { authRouter } from "./routers/auth.router";
 import { dbConnect } from "./database/database";
 import { productRouter } from "./routers/product.router";
 import { categoryRouter } from "./routers/category.router";
+import { cartRouter } from "./routers/cart.router";
 
 async function main() {
     await dbConnect();
@@ -17,6 +18,7 @@ async function main() {
     app.use(authRouter);
     app.use(productRouter);
     app.use(categoryRouter);
+    app.use(cartRouter);
 
     app.listen(port, () => {
         console.log("server is running");
