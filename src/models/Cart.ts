@@ -12,6 +12,7 @@ const cartSchema = new Schema({
         {
             type: Schema.Types.ObjectId,
             ref: "product",
+            default: [''],
         },
     ],
     user: {
@@ -23,4 +24,4 @@ const cartSchema = new Schema({
         default: CartStatus.EMPTY,
     },
 });
-export const Cart = mongoose.model("product", cartSchema);
+export const Cart = mongoose.model("cart", cartSchema);
