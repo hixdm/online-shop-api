@@ -11,14 +11,3 @@ export const tokenGenUser = async (payload: UserPayload) => {
     });
     return token;
 };
-// export const tokenGenAdmin = async (
-//     mobile_number: string,
-//   ) => {
-//     const secret = process.env.SECRET || "secret";
-//     const token = await jwt.sign({mobile_number},secret,
-//       {
-//         expiresIn: "7d",
-//       }
-//     );
-//     return token;
-//   };
